@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <!-- pricechange.component.html -->
+      <div class="container">
+        <h1>Price Change</h1>
+        <form (ngSubmit)="addPriceChange()" #priceChangeForm="ngForm">
+          <!-- Existing form content -->
+
+          <div class="form-group mb-4">
+            <label for="itemCode">Select Items:</label>
+            <select
+              id="itemCode"
+              name="itemCode"
+              class="form-control"
+              required
+              [(ngModel)]="newPriceChange.itemCode"
+            >
+              <option value="undefined" selected disabled>Select</option>
+              <option *ngFor="let item of items" [value]="item.itemCode">
+                {{ item.itemName }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="changeType">Change Type:</label>
+            <div class="form-check">
+              <input
+                type="radio"
+                id="increase"
+                name="changeType"
+                class="form-check-input"
+                value="increase"
+                [(ngModel)]="newPriceChange.changeType"
+                required
+              />
+              <label for="increase" class="form-check-label">Increase</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="radio"
+                id="decrease"
+                name="changeType"
+                class="form-check-input"
+                value="decrease"
+                [(ngModel)]="newPriceChange.changeType"
+                required
+              />
+              <label for="decrease" class="form-check-label">Decrease</label>
+            </div>
+          </div>
+          <div class="form-group mb-4 col-5">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="enter the amount to be updated"
+              [(ngModel)]="newPriceChange."
+            />
+          </div>
+          <label for="priceType">Price Type:</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="dollar"
+              name="priceType"
+              class="form-check-input"
+              value="dollar"
+              [(ngModel)]="newPriceChange.priceType"
+              required
+            />
+            <label for="dollar" class="form-check-label">Dollar ($)</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="percentage"
+              name="priceType"
+              class="form-check-input"
+              value="percentage"
+              [(ngModel)]="newPriceChange.priceType"
+              required
+            />
+            <label for="percentage" class="form-check-label"
+              >Percentage (%)</label
+            >
+          </div>
+
+          <div class="form-group my-4">
+            <h5>Which price do you want to change?</h5>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="changeCost"
+                name="changeCost"
+                class="form-check-input"
+                [(ngModel)]="newPriceChange.changeCost"
+              />
+              <label for="changeCost" class="form-check-label"
+                >Change Cost</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="changePrice"
+                name="changePrice"
+                class="form-check-input"
+                [(ngModel)]="newPriceChange.changePrice"
+              />
+              <label for="changePrice" class="form-check-label"
+                >Change Price</label
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

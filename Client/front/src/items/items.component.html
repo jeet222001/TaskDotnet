@@ -1,0 +1,99 @@
+<div class="container">
+  <button class="btn btn-primary" routerLink="/price-change" target="_blank">Go to Price Change Page</button>
+
+  <div class="row">
+    <div class="col-6">
+      <!-- Add Item Form -->
+      <h2>Add Item</h2>
+      <form (ngSubmit)="addItem(newItem)" class="mb-4">
+        <div class="form-group">
+          <label>Item Code:</label>
+          <input
+            type="number"
+            [(ngModel)]="newItem.itemCode"
+            name="itemCode"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Barcode:</label>
+          <input
+            type="text"
+            [(ngModel)]="newItem.barcode"
+            name="barcode"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Item Name:</label>
+          <input
+            type="text"
+            [(ngModel)]="newItem.itemName"
+            name="itemName"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Cost:</label>
+          <input
+            type="number"
+            [(ngModel)]="newItem.cost"
+            name="cost"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Price:</label>
+          <input
+            type="number"
+            [(ngModel)]="newItem.price"
+            name="price"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <button type="submit" class="my-3 btn btn-primary">Add Item</button>
+      </form>
+
+      <hr />
+
+      <!-- List of Items -->
+      <div class="container">
+        <div class="row">
+          <h2>Item List</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Item Code</th>
+                <th>Barcode</th>
+                <th>Item Name</th>
+                <th>Cost</th>
+                <th>Price</th>
+                <th>Create Date</th>
+                <th>Update Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items">
+                <td>{{ item.itemCode }}</td>
+                <td>{{ item.barcode }}</td>
+                <td>{{ item.itemName }}</td>
+                <td>{{ item.cost }}</td>
+                <td>{{ item.price }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
