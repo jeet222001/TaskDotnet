@@ -20,7 +20,7 @@ namespace ProductAPI.Controllers
         public IActionResult AddPriceChange(PriceChange priceChange)
         {
             // Perform price change logic and update Item table accordingly
-
+            
             _context.PriceChanges.Add(priceChange);
             _context.SaveChanges();
 

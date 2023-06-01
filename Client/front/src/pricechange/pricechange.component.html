@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
+    
     <div class="col-7">
+      <button type="button" class=" btn btn-secondary" (click)="goBack()">Back</button>
       <!-- pricechange.component.html -->
       <div class="container">
         <h1>Price Change</h1>
@@ -17,9 +19,11 @@
               [(ngModel)]="newPriceChange.itemCode"
             >
               <option value="undefined" selected disabled>Select</option>
-              <option *ngFor="let item of items" [value]="item.itemCode">
-                {{ item.itemName }}
-              </option>
+              <ng-container  *ngFor="let item of items" >
+                <option [value]="item.itemCode">
+                  {{ item.itemName }}
+                </option>
+              </ng-container>
             </select>
           </div>
 
@@ -55,7 +59,9 @@
               type="number"
               class="form-control"
               placeholder="enter the amount to be updated"
-              [(ngModel)]="newPriceChange."
+              [(ngModel)]="newPriceChange.amount"
+              name="amount"
+              required
             />
           </div>
           <label for="priceType">Price Type:</label>

@@ -11,7 +11,9 @@ export class PricechangeService {
   constructor(private http: HttpClient) { }
 
   addItem(item: any): Observable<any> {
-    return this.http.post(url, item);
+    console.log('item in service',item);
+    
+    return this.http.post<any>(url, item);
   }
 
   getItems(): Observable<any[]> {
